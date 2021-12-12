@@ -1,4 +1,5 @@
 <x-guest-layout>
+    ユーザー用
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
