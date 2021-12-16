@@ -1,11 +1,11 @@
 @props(['status' => 'info'])
 
 @php
-switch ($status) {
+switch (session('status')) {
     case 'info':
         $bgColor = 'bg-blue-300';
         break;
-    case 'error':
+    case 'alert':
         $bgColor = 'bg-red-500';
         break;
 }
