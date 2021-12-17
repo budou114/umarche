@@ -22,11 +22,12 @@ use App\Http\Controllers\Admin\OwnerController;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.welcome');
-})->middleware('auth:admins');
+// Route::get('/', function () {
+//     return view('admin.welcome');
+// })->middleware('auth:admins');
 
-Route::resource('owners', OwnerController::class);
+Route::resource('owners', OwnerController::class)
+->middleware(['auth:admins'])->except(['show']);
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
