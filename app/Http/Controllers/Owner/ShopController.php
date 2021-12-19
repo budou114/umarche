@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Shop;
 use Illuminate\Support\Facades\Storage;
+use InterventionImage;
 
 class ShopController extends Controller
 {
@@ -44,7 +45,12 @@ class ShopController extends Controller
     {
         $image_file = $request->image;
         if(!is_null($image_file) && $image_file->isValid()) {
-            Storage::putFile('public/shops', $image_file);
+            $file_name = uniqid(rand().'_');
+            $extension = $image_file->extension();
+            $file_name_to_store = $file_name . '.' . $extension;
+            $resized_image = InterventionImage::make($image_file)->resize(1920, 1080)->encode();
+
+            Storage::put('public/shops/' . $file_name_to_store, $resized_image);
         }
 
         return redirect()->route('owner.shops.index');
