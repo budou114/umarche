@@ -12,6 +12,17 @@ class ShopController extends Controller
     public function __construct()
     {
         $this->middleware('auth:owners');
+        $this->middleware(function ($request, $next) {
+            $id = $request->route()->parameter('shop');
+            if(!is_null($id)) {
+                $shop_owner_id = Shop::findOrFail($id)->owner->id;
+                $owner_id = Auth::id();
+                if($shop_owner_id != $owner_id) {
+                    abort(404);
+                }
+            }
+            return $next($request);
+        });
     }
 
     public function index()
@@ -24,6 +35,7 @@ class ShopController extends Controller
 
     public function edit($id)
     {
+
     }
 
     public function update(Request $request, $id)
