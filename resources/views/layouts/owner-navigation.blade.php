@@ -16,8 +16,12 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('owner.dashboard')" :active="request()->routeIs('owner.dashboard')">
                         {{ __('Dashboard') }}
-                    </x-nav-link><x-nav-link :href="route('owner.shops.index')" :active="request()->routeIs('owner.shops.index')">
+                    </x-nav-link>
+                    <x-nav-link :href="route('owner.shops.index')" :active="request()->routeIs('owner.shops.index')">
                         店舗情報
+                    </x-nav-link>
+                    <x-nav-link :href="route('owner.images.index')" :active="request()->routeIs('owner.images.index')">
+                        画像管理
                     </x-nav-link>
                 </div>
             </div>
@@ -69,8 +73,12 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('owner.dashboard')" :active="request()->routeIs('owner.dashboard')">
                 {{ __('Dashboard') }}
-            </x-responsive-nav-link><x-responsive-nav-link :href="route('owner.shops.index')" :active="request()->routeIs('owner.shops.index')">
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('owner.shops.index')" :active="request()->routeIs('owner.shops.index')">
                 店舗情報
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('owner.images.index')" :active="request()->routeIs('owner.images.index')">
+                画像管理
             </x-responsive-nav-link>
         </div>
 

@@ -22,7 +22,7 @@
                                             <span class="border p-2 rounded-md bg-red-400 text-white">停止中</span>
                                         @endif
                                     </div>
-                                    <x-shop-thumbnail :filename="$shop->filename"/>
+                                    <x-thumbnail :filename="$shop->filename" type="shops"/>
                                     <div class="text-x1">{{ $shop->name }}</div>
                                 </div>
                             </a>
