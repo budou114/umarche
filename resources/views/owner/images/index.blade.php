@@ -23,6 +23,7 @@
                             </a>
                         </div>
                     @endforeach
+                    {{ $images->links() }}
                 </div>
             </div>
         </div>
