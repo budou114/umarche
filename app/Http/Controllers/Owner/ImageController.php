@@ -35,7 +35,7 @@ class ImageController extends Controller
         $owner_id = Auth::id();
         $images = Image::where('owner_id', $owner_id)
         ->orderby('updated_at', 'desc')
-        ->pagenate(20);
+        ->paginate(20);
 
         return view('owner.images.index', compact('images'));
         
