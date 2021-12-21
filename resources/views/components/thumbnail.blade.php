@@ -3,6 +3,10 @@
     case 'shops':
         $path = 'storage/shops/';
         break;
+        
+    case 'products':
+        $path = 'storage/products/';
+        break;
     }
 @endphp
 
