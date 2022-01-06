@@ -15,7 +15,11 @@
         case 'image4':
             $modal = 'modal-4';
             break;
-    }
+
+        case 'image5':
+            $modal = 'modal-5';
+            break;
+        }
 @endphp
 
 <div class="modal micromodal-slide" id="{{ $modal }}" aria-hidden="true">
@@ -57,4 +61,3 @@
     </div>
   </div>
   <input id="{{ $name }}_hidden" type="hidden" name="{{ $name }}" value="">
-  
