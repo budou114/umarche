@@ -9,7 +9,13 @@ public/imagesフォルダ内にsample1.jpeg～sample6.jpegとして保存して�
 ```php artisan storage:link```  
 コマンドの実行後、storageフォルダにリンク後、  
 storage/app/public/productsフォルダ内に保存すると表示されます。  
-productsフォルダがない場合は作成してください。  
+productsフォルダがない場合は作成してください。
+
+## ファイルのコンパイル
+npmのコンパイルコマンドを実行する  
+開発環境の場合  
+```npm run dev```
+
 
 ## 参考にしたサイト
 - 画像  
