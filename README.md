@@ -6,9 +6,9 @@
 
 ## 画像のダミーデータ
 public/imagesフォルダ内にsample1.jpeg～sample6.jpegとして保存しています。  
-```php artisan strage:link```  
-コマンドの実行後、strageフォルダにリンク後、  
-strage/app/public/productsフォルダ内に保存すると表示されます。  
+```php artisan storage:link```  
+コマンドの実行後、storageフォルダにリンク後、  
+storage/app/public/productsフォルダ内に保存すると表示されます。  
 productsフォルダがない場合は作成してください。  
 
 ## 参考にしたサイト
