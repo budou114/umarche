@@ -12,7 +12,7 @@ use App\Models\PrimaryCategory;
 use App\Models\Owner;
 use App\Models\Stock;
 use Illuminate\Support\Facades\DB;
-use App\Http\Request\ProductRequest;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -148,7 +148,18 @@ class ProductController extends Controller
             'current_quantity' => 'required', 'integer',
         ]);
 
-        
+        // editからupdateの間に在庫数の変更があった場合は編集画面に戻す
+        $product = Product::findOrFail($id);
+        $quantity = Stock::where('product_id', $product->id)->sum('quantity');
+        if($request->current_quantity !== $quantity) {
+            $id = $request->route()->parameter('product');
+            return redirect()
+                ->route('owner.products.edit', ['product' => $id])
+                ->with(['message' =>'在庫数が変更されています。再度確認してください。',
+                'status' => 'alert']);
+
+        } else {
+        }
     }
 
     /**
