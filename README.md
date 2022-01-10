@@ -30,3 +30,5 @@ https://pixabay.com/ja/
 ## プラグイン  
 - 画像のカルーセルで使用  
 swiper@6.7.0
+- モーダル画面で使用  
+micromodal@0.4.10
