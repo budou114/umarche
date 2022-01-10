@@ -17,6 +17,10 @@ public/imagesフォルダ内にsample1.jpeg～sample6.jpegとして保存して�
 storage/app/public/productsフォルダ内に保存すると表示されます。  
 productsフォルダがない場合は作成してください。
 
+ショップの画像も表示する場合は、  
+storage/app/public/shopsフォルダを作成し  
+画像を保存してください。
+
 ## ファイルのコンパイル
 npmのコンパイルコマンドを実行する  
 開発環境の場合  
