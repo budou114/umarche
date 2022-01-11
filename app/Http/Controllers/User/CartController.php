@@ -85,8 +85,19 @@ class CartController extends Controller
                 'type' => \Constant::PRODUCT_LIST['reduce'],
                 'quantity' => $product->pivot->quantity * -1
             ]);
-
-            dd('test');
         }
+        
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+
+        $session = \Stripe\Checkout\Session::create([
+            'line_items' => [$lineItems],
+            'mode' => 'payment',
+            'success_url' => route('user.items.index'),
+            'cancel_url' => route('user.cart.index'),
+        ]);
+
+        $publicKey = env('STRIPE_PUBLIC_KEY');
+
+        return view('user.checkout', compact('session', 'publicKey')); 
     }
 }
