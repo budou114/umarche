@@ -4,7 +4,7 @@
             商品一覧
         </h2>
         <form method="get" action="{{ route('user.items.index') }}">
-            <div class="lg:flex lg:justify-arround">
+            <div class="lg:flex lg:justify-around">
                 <div class="lg:flex items-center">
                     <select name="category" class="mb-2 lg:mb-0">
                         @foreach ($categories as $category)
