@@ -1,4 +1,4 @@
-<p class="mb-4">{{ $product['ownerName'] }}様の商品が注文されています。}</p>
+<p class="mb-4">{{ $product['ownerName'] }}様の商品が注文されています。</p>
 
 <div class="mb-4">商品情報</div>
 <ul class="mb-4">
