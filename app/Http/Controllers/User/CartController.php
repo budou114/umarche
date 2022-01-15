@@ -58,21 +58,6 @@ class CartController extends Controller
 
     public function checkout()
     {
-        ////
-        $items = Cart::where('user_id', Auth::id())->get();
-        $products = CartService::getItenmInCart($items);
-        $user = User::findOrFail(Auth::id());
-
-        // ユーザー向けメールの送信
-        SendThanksMail::dispatch($products, $user);
-
-        // 各オーナー向けメールの送信
-        foreach ($products as $product) {
-            SendOrderedMail::dispatch($product, $user);
-        }
-        dd('テスト');
-        ////
-
         $user = User::findOrFail(Auth::id());
         $products = $user->products;
 
@@ -121,6 +106,18 @@ class CartController extends Controller
 
     public function success()
     {
+        $items = Cart::where('user_id', Auth::id())->get();
+        $products = CartService::getItenmInCart($items);
+        $user = User::findOrFail(Auth::id());
+
+        // ユーザー向けメールの送信
+        SendThanksMail::dispatch($products, $user);
+
+        // 各オーナー向けメールの送信
+        foreach ($products as $product) {
+            SendOrderedMail::dispatch($product, $user);
+        }
+
         Cart::where('user_id', Auth::id())->delete();
 
         return redirect()->route('user.items.index');
